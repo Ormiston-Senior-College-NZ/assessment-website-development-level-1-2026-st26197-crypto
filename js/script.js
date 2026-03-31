@@ -163,7 +163,7 @@ document.addEventListener('keydown', () => {
     console.log('Konami Code: correct key entered, keySequencePosition is now ' + keySequencePosition);
     if (keySequencePosition === 11) {
       console.log('Konami Code: correct key sequence entered, Konami Code activated');
-      window.open('../secret.html', '_self');
+      window.open('./secret.html', '_self');
       console.log('Konami Code: "secret.html" opened');
       keySequencePosition = 0;
       console.log('Konami Code: keySequencePosition reset to 0, keySequencePosition is now ' + keySequencePosition);
