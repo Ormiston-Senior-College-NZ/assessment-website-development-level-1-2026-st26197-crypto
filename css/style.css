@@ -1,0 +1,380 @@
+* {
+  box-sizing: border-box;
+  font-family: var(--font);
+  background-color: var(--background-color);
+  color: var(--color);
+  text-decoration-color: var(--line-color);
+  padding: 0;
+  margin: 0;
+  scrollbar-color: var(--line-color) var(--background-color);
+  scrollbar-width: thin;
+
+  transition: 
+  background-color 1s, 
+  color 1s,
+  border-color 1s, 
+  box-shadow 1s,
+  scrollbar-color 0.2s;
+}
+
+:root {
+  --font: "Crimson Pro", "EB Garamond", Garamond, serif;
+  --font-size: 14px;
+  --h-font: "Grenze Gotisch", fantasy, serif;
+  --background-color: black;
+  --color: beige;
+  --h-a-color: darkgoldenrod;
+  --ghost-color: #046307;
+  --line-color: #600;
+  --text-padding: 0 2.5%;
+  --border: 4px solid var(--line-color);
+  --text-margin: 1rem auto 0;
+}
+
+html {
+  /* Many background image designs have
+  been created and saved to a folder, 
+  which serves as a kind of 'library' 
+  for background images. Files are named
+  systematically, so can be changed easily 
+  (e.g. can change 'square' to 'circle' or
+  'lattice' to change background image to
+  'square-blue.png' or 'lattice-blue.png',
+  or 'blue' to 'red' or 'green' to change 
+  background image to 'square-red' or 
+  'square'green'). */
+  background: url(../image/background-images/square-blue.png) fixed center;
+
+  font-size: var(--font-size);
+  width: 100%;
+
+  /* If page does not reach bottom of
+  screen, force it to stretch so that the
+  'body' borders will reach bottom of
+  screen */
+  min-height: 100vh;
+
+  scrollbar-width: auto;
+  visibility: hidden;
+}
+
+html.white-theme {
+  --background-color: white;
+  --color: black;
+}
+
+body {
+  /* Confines everything to a column */
+  width: var(--width);
+
+  padding: 0 2.5%;  
+  border-left: 4px solid var(--line-color);
+  border-right: 4px solid var(--line-color);
+  margin: 0 auto;
+  box-shadow: 0 0 50px 10px silver;
+}
+
+html.white-theme body {
+  box-shadow: 0 0 50px 10px white;
+}
+
+html.white-theme nav.page {
+  box-shadow: 0 10px 15px 10px white;
+}
+
+nav {
+  border: var(--border);
+  border-radius: 5px;
+}
+
+nav.page {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(0.9 * var(--width));
+  z-index: 1;
+  box-shadow: 0 10px 15px 10px black;
+}
+
+nav.page .title {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.this-page::after {
+  content: "\00A0\00A0<";
+  color: darkgoldenrod;
+}
+
+nav.section {
+  margin: var(--text-margin);
+}
+
+nav h3 {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+nav :not(h3) {
+  background: transparent;
+  color: var(--color);
+}
+
+nav ol {
+  height: 2.7rem;
+  padding: 0.25rem 1.5rem;
+  overflow: hidden scroll;
+}
+
+#theme-toggle {
+  transform: translateX(calc(-100% - 4px));
+  color: var(--h-a-color);
+  text-align: center;
+  font-size: 0.75rem;
+  text-decoration: underline;
+  height: calc(2.5rem - 8px);
+  padding: 0 1.5%;
+  border-radius: 5px;
+  border: 2px solid silver;
+  z-index: 2;
+}
+
+#theme-toggle, html.white-theme #theme-toggle:hover {
+  background-color: white;
+}
+
+html.white-theme #theme-toggle, #theme-toggle:hover {
+  background-color: #600;
+}
+
+main {
+  /* Height of page navigation
+  (approx. 4.94rem) + height of 
+  top and bottom page navigation 
+  borders (4px each) + breathing 
+  room (10px) 
+  4.44rem + 4px + 4px + 10px
+  = 4.44 + 18px */
+  padding-top: calc(4.94rem + 18px);
+}
+
+#never-give-up {
+  color: var(--h-a-color);
+  cursor: pointer;
+}
+
+#never-give-up:hover {
+  text-decoration: underline var(--line-color);
+}
+
+.gallery {
+  /* Allows shrinking */
+  display: flex;
+
+  /* Sets a specific height to
+  make layout consistent, and to
+  make sure it does not take too
+  much space */
+  height: 10rem;
+
+  margin: var(--text-margin);
+
+  /* Shows horizontal scrollbar
+  only if needed; hides vertical
+  overflow to make potential 
+  coding errors more obvious and
+  debugging easier */
+  overflow: auto hidden;
+}
+
+.gallery figure {
+  /* Prevents shrinking too
+  small */
+  min-width: 10rem;
+
+  /* Borders make it easier to
+  see ends of 'figure'; makes
+  scrolling easier */
+  border-top: 2px solid var(--line-color);
+  border-bottom: 2px solid var(--line-color);
+  
+  /* Gives breathing room
+  around figures */
+  margin: 0 2.5% 0.5rem;
+
+  /* Shows vertical scrollbar
+  only if needed; hides horizontal
+  overflow to make potential
+  coding errors more obvious and
+  debugging easier */
+  overflow: hidden auto;
+}
+
+.gallery img {
+  /* Thinner borders than usual;
+  4px would clutter up the small
+  space */
+  border: 2px solid var(--h-a-color);
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  background-color: var(--line-color);
+  color: var(--h-a-color);
+  font-family: var(--h-font);
+  width: 100%;
+}
+
+h2, h3, h4, h5, h6 {
+  padding: var(--text-padding);
+  margin: var(--text-margin);
+}
+
+p {
+  padding: var(--text-padding);
+  margin: var(--text-margin) auto;
+}
+
+a {
+  color: var(--h-a-color);
+  text-decoration: underline transparent;
+}
+
+a:hover {
+  text-decoration: underline var(--line-color);
+}
+
+li {
+  font-size: 1.1rem;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: var(--text-margin);
+}
+
+img {
+  border: 4px solid var(--h-a-color);
+}
+
+/* Ghost: Easter egg features. Main colour is
+emerald (HEX #046307, or var(--ghost-color).
+Named this way as they are hover effects
+which are initially invisible, but when
+hovered over, slowly become visible (by 
+increasing 'opacity' of 'ghost' elements
+over time). */
+
+figure.ghost {
+  /* Allows positioning over and covering of
+  main content */
+  position: absolute;
+
+  /* Positions over image of notebook */
+  top: calc(7.5rem + 18px);
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* Override 'background-color' (black);
+  otherwise black background will cover
+  main content even when not hovered */
+  background-color: transparent;
+}
+
+span.ghost {
+  font-weight: bold;
+  color: var(--ghost-color);
+  opacity: 0;
+  transition: opacity 1.75s linear 0.25s;
+}
+
+.ghost img {
+  width: calc(0.9 * var(--width));
+
+  /* Override border color
+  (darkgoldenrod) to make obvious this
+  is 'special' content */
+  border: 4px solid var(--ghost-color);
+
+  /* Adds a 'strange green glow' to make
+  obvious this is 'special' content */
+  box-shadow: 0 0 50px 10px var(--ghost-color);
+
+  margin: 0 auto;
+
+  /* Completely transparent (invisible)
+  until hovered over for 10s, then
+  takes 3s to become completely opaque */
+  opacity: 0;
+
+  /* You have to be patient for this
+  one! */
+  transition: opacity 3s linear 10s;
+}
+
+.ghost img:hover, span.ghost:hover {
+  /* Completely transparent (invisible)
+  until hovered over for 10s, then
+  takes 3s to become completely opaque */
+  opacity: 100;
+}
+
+#section-1, #gallery {
+  /* Ensures headers are not covered by
+  page navigation when using links in
+  section navigation */
+  scroll-margin-top: calc(4.44rem + 18px);
+}
+
+
+/* Media queries at bottom of stylesheet
+allows overriding any previous rules */
+
+@media (min-width: 200px) {
+  :root {
+    --width: 100%;
+    --font-size: 8px;
+  }
+}
+
+@media (min-width: 320px) {
+  :root {
+    --width: 65%;
+    --font-size: 12px;
+  }
+}
+
+@media (min-width: 650px) {
+  :root {
+    --width: 35%;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --width: 25%;
+  }
+}
+
+@media (min-width: 3250px) {
+  :root {
+    --width: 15%;
+  }
+}
