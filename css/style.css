@@ -357,7 +357,6 @@ allows overriding any previous rules */
 @media (min-width: 320px) {
   :root {
     --width: 65%;
-    --font-size: 12px;
   }
 }
 
